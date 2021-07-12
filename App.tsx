@@ -1,19 +1,21 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native'
+import { Intro } from './src/screens/intro-screen'
+import { Home } from './src/screens/home-screen'
+import { createStackNavigator } from '@react-navigation/stack'
+
+const Route = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <NavigationContainer>
+      <Route.Navigator screenOptions={{headerShown:false}}>
+        <Route.Screen name='Intro' component={Intro} />
+        <Route.Screen name='Home' component={Home} />
+      </Route.Navigator>
+    </NavigationContainer>
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
